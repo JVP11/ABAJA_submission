@@ -1,0 +1,29 @@
+Analysis of Lateral Deviation and Curvature Response
+
+Lateral Deviation Analysis
+
+The lateral deviation of the vehicle was evaluated using the parameter tRoad, which represents the lateral distance between the vehicle and the lane centerline during the Lane Keeping Assist (LKA) operation.
+
+The recorded results indicate that the largest lateral deviations occurred primarily during curved sections of the track. In straight road segments, the vehicle maintained a relatively stable position close to the lane center, resulting in low deviation values. As the road curvature increased, temporary increases in lateral deviation were observed due to the steering controller adapting to the changing lane geometry.
+
+Peak deviation values were observed at the entry and mid-section of sharp curves, where rapid changes in lane direction required larger steering corrections. These sections contributed most significantly to the overall RMSE value.
+
+Response to Curvature Changes
+
+The implemented LKA algorithm continuously estimates the lane center from the camera input and calculates steering commands based on the lateral deviation from the desired path.
+
+When approaching a curved section, the perceived lane center shifts relative to the vehicle position. The controller responds by generating corrective steering commands to guide the vehicle toward the center of the lane. During this transition, a temporary increase in lateral deviation is observed due to vehicle dynamics, controller response time, and lane curvature.
+
+As the vehicle progresses through the curve, the controller gradually reduces the deviation and stabilizes the vehicle within the lane boundaries. Once the curvature decreases and the road returns to a straight section, the lateral deviation reduces and the vehicle re-centers within the lane.
+
+Observations
+
+* Minimum lateral deviation was observed during straight road segments.
+* Maximum lateral deviation occurred during curved sections with higher curvature.
+* The controller successfully generated steering corrections in response to lane curvature changes.
+* Temporary increases in lateral deviation were observed during curve entry and exit regions.
+* The vehicle remained capable of tracking the lane trajectory and recovering toward the lane center after curvature changes.
+
+Conclusion
+
+The experimental results demonstrate that the Lane Keeping Assist system is capable of maintaining lane tracking performance under both straight and curved road conditions. While lateral deviation increases during high-curvature sections, the controller effectively compensates through steering corrections and guides the vehicle back toward the lane center. This behavior indicates that the implemented perception and control architecture can adapt to varying road geometries while maintaining stable lane-following performance.

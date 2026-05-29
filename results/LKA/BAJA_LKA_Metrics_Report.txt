@@ -1,0 +1,30 @@
+BAJA SAE INDIA 2026 - LKA Performance Metrics
+
+RMSE (Root Mean Square Error)
+
+Formula: RMSE = sqrt((1/N) * sum(tRoad(i)^2))
+
+Where: - tRoad(i) = lateral deviation from lane center (m) - N = total
+number of samples
+
+MATLAB: RMSE = sqrt(mean(tRoad.^2));
+
+Computed Result: RMSE = 1.4331 m
+
+ILC (In-Lane Coverage)
+
+Formula: ILC = (Number of samples where |tRoad| <= T) / N * 100
+
+Where: - T = Lane Width / 2 - N = total number of samples
+
+MATLAB: T = 1.75; ILC = sum(abs(tRoad) <= T)/length(tRoad)*100;
+
+Computed Result: ILC = 72.25 %
+
+Methodology
+
+The lateral deviation signal (tRoad) was recorded throughout the
+complete LKA run. RMSE was calculated using the root mean square of the
+lateral deviation samples. ILC was calculated as the percentage of
+samples for which the absolute lateral deviation remained within half of
+the lane width (±1.75 m).
